@@ -18,6 +18,16 @@ services:
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 
+  kibana:
+    container_name: kibana
+    build: docker/kibana/
+    volumes:
+      - ./docker/kibana/config/:/usr/share/kibana/config:ro
+    ports:
+      - '5601:5601'
+    depends_on:
+      - es7
+
   redis:
     image: 'redis:4-alpine'
     ports:
