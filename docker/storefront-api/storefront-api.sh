@@ -1,10 +1,3 @@
-#!/bin/sh
-set -e
+#!/usr/bin/env bash
 
-yarn install || exit $?
-
-if [ "$VS_ENV" = 'dev' ]; then
-  yarn dev
-else
-  yarn start
-fi
+yarn && yarn dev
